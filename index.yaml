@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2021-02-06T20:01:11.619382+01:00"
+entries:
+  freecad:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-02-06T20:04:45.2429253+01:00"
+    description: A Helm chart for Kubernetes
+    digest: af19d37aa29300e927035e5d39e3c0170218682709729776620e7e334c8dea83
+    name: freecad
+    type: application
+    urls:
+    - https://syashfr.github.io/freecad/freecad-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-02-06T20:04:45.2379614+01:00"
