@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freecad-deployment-{{.Release.Name}}
+  labels:
+    app: freecad-{{.Release.Name}}
+spec:
+  replicas: {{ .Values.replicas}}
+  selector:
+    matchLabels:
+      app: freecad-{{.Release.Name}}
+  template:
+    metadata:
+      labels:
+        app: freecad-{{.Release.Name}}
+    spec:
+      containers:
+      - name: freecad-{{.Release.Name}}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.targetPort }}

@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: freecad-service-{{.Release.Name}}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /freecad/?(.*)
+          backend:
+             serviceName: freecad-service-{{.Release.Name}}
+             servicePort: {{.Values.service.port}}
